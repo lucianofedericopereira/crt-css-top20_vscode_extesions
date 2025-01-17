@@ -29,47 +29,38 @@ const file = "./FILES.BBS", bbs = "https://github.com/lucianofedericopereira",
           .join(' ')
           .replace(/vs\s?code/i, '')
           .trim();
-
         return { link, description, name };
       })
       .sort((a, b) => a.name.localeCompare(b.name));
   },
   renderLinks = async entries => {
     if (!Array.isArray(entries)) return;
-
     const screen = document.getElementById("screen");
     const fragment = document.createDocumentFragment();
     const baseUrl = 'https://marketplace.visualstudio.com/items?itemName=';
-
     entries.slice(0, 20).forEach((entry, index) => {
       const p = document.createElement('p');
       const a = document.createElement('a');
       const spanIndex = document.createElement('span');
       const spanDescription = document.createElement('span');
-
       spanIndex.textContent = String(index + 1).padStart(2, '0') + ".";
       spanDescription.textContent = `: ${entry.description.padEnd(72 - entry.name.length, " ")}`;
-
       a.href = `${baseUrl}${entry.link}`;
       a.target = '_blank';
       a.rel = 'noreferrer noopener nofollow';
       a.textContent = entry.name;
       a.setAttribute('data-index', index);
-
       p.appendChild(spanIndex);
       p.appendChild(document.createTextNode(" "));
       p.appendChild(a);
       a.appendChild(spanDescription);
-
       fragment.appendChild(p);
     });
-
     screen.appendChild(fragment);
   },
   themeSwitcher = async () => {
     const colors = ['amber', 'green', 'white'];
     const hash = window.location.hash.slice(1);
-
     const setColor = color => {
       const colorElement = document.getElementById('color');
       if (colorElement) {
@@ -77,7 +68,6 @@ const file = "./FILES.BBS", bbs = "https://github.com/lucianofedericopereira",
         localStorage.setItem('terminalcolor', color);
       }
     };
-
     if (colors.includes(hash)) {
       setColor(hash);
     } else {
@@ -86,7 +76,6 @@ const file = "./FILES.BBS", bbs = "https://github.com/lucianofedericopereira",
         setColor(currentTheme);
       }
     }
-
     colors.forEach(col => {
       const button = document.getElementById('button' + col);
       if (button) {
@@ -111,12 +100,6 @@ bbsLink = bbs => {
       if (parsedData) {
         await renderLinks(parsedData);
         kbdHandler();
-
-
-
-
-
-
       }
     }
     themeSwitcher();
@@ -125,13 +108,10 @@ bbsLink = bbs => {
     console.error('An error occurred:', error);
   }
 })(file);
-
-
 const kbdHandler = () => {
   const links = document.querySelectorAll('a[data-index]');
   let currentActiveIndex = -1;
   let isHovered = false;
-
   document.addEventListener('keydown', event => {
     if (!isHovered) {
       switch (event.key) {
@@ -185,7 +165,6 @@ const kbdHandler = () => {
       }
     }
   });
-
   links.forEach((link, index) => {
     link.addEventListener('mouseenter', () => {
       isHovered = true;
@@ -193,9 +172,18 @@ const kbdHandler = () => {
       currentActiveIndex = index;
       link.classList.add('active');
     });
-
     link.addEventListener('mouseleave', () => {
       isHovered = false;
     });
   });
 };
+(() => {
+    setTimeout(() => {
+        setInterval(() => {
+            const d = new Date();
+            const time = d.toLocaleTimeString([], { hour12: true, hour: '2-digit', minute: '2-digit' });
+            const colon = d.getSeconds() % 2 === 0 ? ':' : '\u200A\u2006';
+            document.title = time.replace(':', colon);
+        }, 1000);
+    }, 4000);
+})();
