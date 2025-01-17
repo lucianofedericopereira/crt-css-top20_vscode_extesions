@@ -1,0 +1,20 @@
+ms-vscode.live-server	                Hosts a local server for you to preview your web projects on
+hdg.live-html-previewer	                Preview your html files in VS Code itself
+wmaurer.vscode-jumpy	                Fast cursor movement, inspired by Atom's package Jumpy
+cliffordfajardo.highlight-line-vscode   Highlights the current line in the editor
+TabNine.tabnine-vscode	                AI Autocomplete for Javascript, Python, TS, and PHP
+bodil.file-browser	                    An integrated, keyboard driven file selector
+dbaeumer.vscode-eslint	                Integrates ESLint into VS Code
+robertz.code-snapshot	                Takes photos of your work to share it in presentations
+BeardedBear.beardedtheme	            Visual Theme
+BeardedBear.beardedicons	            250 icons pack
+Gruntfuggly.activitusbar	            Puts icons on the status bar
+MS-vsliveshare.vsliveshare	            Collaboratively edit and debug with others in real time
+jpotterm.simple-vim	                    An opinionated Vim-like extension for VSCode
+publicus.org-checkbox	                Add checkbox highlighting to org and md grammars
+tootone.org-mode	                    Inspiredby Emacs Org mode. Keep notes, maintain TODO lists
+yzhang.markdown-all-in-one	            Markdown oriented macros, shortcuts, and preview
+rangav.vscode-thunder-client	        Rest API Client Extension
+lihdd.vscode-line-history	            Track uncommitted line changes as you type.
+kahole.magit	                        Text-based user interface to Git inspired by Emacs Magit
+garaemon.vscode-emacs-tab	            Indents like Emacs behavior
